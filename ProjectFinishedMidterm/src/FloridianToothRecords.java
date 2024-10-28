@@ -1,19 +1,28 @@
 import java.util.Scanner;
 
 /**
- * This program records and manages the dental records for families in Florida.
- *
+ * This program records and manages the dental records for a family in Florida
  * @author Summer Voeller
  */
-public class HelloWorld {
+public class FloridianToothRecords {
+    /**
+     * Global Scanner object to use keyboard
+     */
     private static final Scanner keyboard = new Scanner(System.in);
+
+    //Global variables
+    /**
+     * There is a max of 6 family members
+     * There is a max of 8 teeth per row
+     */
     private static final int MAX_TEETH = 8;
     private static final int MAX_FAMILY_MEMBERS = 6;
 
     public static void main(String[] args) {
-        System.out.println("Welcome to the Floridian Tooth Records\n" +
-                "-------------------------------------");
-        int familyNum = getFamilyData();
+        System.out.println("Welcome to the Floridian Tooth Records");
+        System.out.println("--------------------------------------");
+
+        int familyNum = getFamilyInfo();
         String[] memberName = new String[familyNum];
         char[][][] toothType = new char[familyNum][2][MAX_TEETH];
         getFamilyMemberData(familyNum, memberName, toothType);
@@ -27,35 +36,34 @@ public class HelloWorld {
     }
 
     /**
-     * Asks the user to enter the number of family members they have.
-     *
+     * Asks the user to enter the number of family members
      * @return The number of family members.
      */
-    private static int getFamilyData() {
-        int familyNum;
+    private static int getFamilyInfo() {
+        int numberOfFamilyMembers;
+        System.out.print("Please enter number of people in the family : ");
         do {
-            System.out.print("Please enter number of people in the family : ");
-            familyNum = keyboard.nextInt();
-            if (familyNum < 1 || familyNum > MAX_FAMILY_MEMBERS) {
-                System.out.println("Invalid number of people, try again :");
+            numberOfFamilyMembers = keyboard.nextInt();
+            if (numberOfFamilyMembers < 1 || numberOfFamilyMembers > MAX_FAMILY_MEMBERS) {
+                System.out.print("Invalid number of people, try again         : ");
             }
-        } while (familyNum < 1 || familyNum > MAX_FAMILY_MEMBERS);
-        return familyNum;
+        } while (numberOfFamilyMembers < 1 || numberOfFamilyMembers > MAX_FAMILY_MEMBERS);
+        return numberOfFamilyMembers;
     }
 
     /**
      * Gets the name, upper teeth, and lower teeth data for each member.
-     * @param familyNum  The number of family members.
-     * @param memberName The array to store family member names.
+     * @param familyNumber  The number of family members.
+     * @param familyMemberName The array to store family member names.
      * @param toothType  The 3D array to store tooth data.
      */
-    private static void getFamilyMemberData(int familyNum, String[] memberName, char[][][] toothType) {
+    private static void getFamilyMemberData(int familyNumber, String[] familyMemberName, char[][][] toothType) {
         int famIndex;
-        for (famIndex = 0; famIndex < familyNum; famIndex++) {
-            System.out.print("Please enter the name for family member " + (famIndex + 1) + " : ");
-            memberName[famIndex] = keyboard.next();
-            toothType[famIndex][0] = getTeethData(memberName[famIndex], "uppers");
-            toothType[famIndex][1] = getTeethData(memberName[famIndex], "lowers");
+        for (famIndex = 0; famIndex < familyNumber; famIndex++) {
+            System.out.print("Please enter the name for family member " + (famIndex + 1) + "   : ");
+            familyMemberName[famIndex] = keyboard.next();
+            toothType[famIndex][0] = getTeethInformation(familyMemberName[famIndex], "uppers");
+            toothType[famIndex][1] = getTeethInformation(familyMemberName[famIndex], "lowers");
         }
     }
 
@@ -65,15 +73,15 @@ public class HelloWorld {
      * @param upperOrLower "uppers" or "lowers".
      * @return The array of characters representing the teeth data.
      */
-    private static char[] getTeethData(String memberName, String upperOrLower) {
+    private static char[] getTeethInformation(String memberName, String upperOrLower) {
         String teethString;
+        System.out.print("Please enter the " + upperOrLower + " for " + memberName + " : ");
         do {
-            System.out.print("Please enter the " + upperOrLower + " for " + memberName + " : ");
             teethString = keyboard.next().toUpperCase();
             if (teethString.length() > MAX_TEETH) {
-                System.out.println("Too many teeth, try again :");
+                System.out.print("Too many teeth, try again : ");
             } else if (!isValidTeethString(teethString)) {
-                System.out.println("Invalid teeth types, try again :");
+                System.out.print("Invalid teeth types, try again : ");
             }
         } while (teethString.length() > MAX_TEETH || !isValidTeethString(teethString));
         return teethString.toCharArray();
@@ -97,7 +105,7 @@ public class HelloWorld {
      * Displays the menu options.
      */
     private static void displayMenuOptions() {
-        System.out.println("(P)rint, (E)xtract, (R)oot, e(X)it :");
+        System.out.print("(P)rint, (E)xtract, (R)oot, e(X)it :");
     }
 
     /**
@@ -120,8 +128,9 @@ public class HelloWorld {
             case 'X':
                 break; // Exit
             default:
-                System.out.println("Invalid menu option, try again :");
+                System.out.print("Invalid menu option, try again : ");
         }
+        displayMenuOptions();
     }
 
     /**
@@ -138,12 +147,12 @@ public class HelloWorld {
             System.out.println(memberName[famIndex]);
             System.out.print(" Uppers: ");
             for (toothIndex = 0; toothIndex < toothType[famIndex][0].length; toothIndex++) {
-                System.out.printf("%3d:%c", toothIndex + 1, toothType[famIndex][0][toothIndex]);
+                System.out.printf("%3d:%c  ", toothIndex + 1, toothType[famIndex][0][toothIndex]);
             }
             System.out.println();
             System.out.print(" Lowers: ");
             for (toothIndex = 0; toothIndex < toothType[famIndex][1].length; toothIndex++) {
-                System.out.printf("%3d:%c", toothIndex + 1, toothType[famIndex][1][toothIndex]);
+                System.out.printf("%3d:%c  ", toothIndex + 1, toothType[famIndex][1][toothIndex]);
             }
             System.out.println();
         }
@@ -237,10 +246,10 @@ public class HelloWorld {
     /**
      * Calculates the root canals based on the family's data.
      *
-     * @param familyNum The number of family members.
+     * @param familyNumber The number of family members.
      * @param toothType The 3D array of tooth data.
      */
-    private static void calculateRootCanals(int familyNum, char[][][] toothType) {
+    private static void calculateRootCanals(int familyNumber, char[][][] toothType) {
         double a;
         double b;
         double c;
@@ -253,7 +262,7 @@ public class HelloWorld {
         int fam_index;
         int row;
         // Count the total number of each tooth type the family has
-        for (fam_index = 0; fam_index < familyNum; fam_index++) {
+        for (fam_index = 0; fam_index < familyNumber; fam_index++) {
             for (row = 0; row < 2; row++) {
                 for (toothIndex = 0; toothIndex < toothType[fam_index][row].length; toothIndex++) {
                     switch (toothType[fam_index][row][toothIndex]) {
@@ -284,5 +293,5 @@ public class HelloWorld {
         } else {
             System.out.println(" No real roots");
         }
-    }
-}
+    }// end of calculateRootCanals method
+} // end of FloridianToothRecords class

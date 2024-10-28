@@ -30,7 +30,10 @@ public class Kindle {
     //-------------------------------------------------------------------------------------------------
 
     public void turnPages(){
-        currentPages = currentPages + 1;
+        if (currentPages < totalPages){
+            currentPages ++;
+        }
+
     } // end of turnPage Method with no parameter
 
     //-------------------------------------------------------------------------------------------------
@@ -44,9 +47,10 @@ public class Kindle {
         }else{
             currentPages = totalPages;
 
-            System.out.println("You were on : Page   " + currentPages + totalPages );
+            System.out.println("You were on                : " + toString());
             System.out.println("Turning " + numberOfPages + " pages would take you past the last page.");
-            System.out.println("You are now on     : Page " + currentPages + "of" + totalPages);
+            currentPages = totalPages;
+            System.out.println("You are now on             : Page   " + currentPages + " of " + totalPages);
 
         }//end of if else statement
 

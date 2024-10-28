@@ -10,8 +10,15 @@
       <module fileurl="file://$PROJECT_DIR$/Lab4/Lab4.iml" filepath="$PROJECT_DIR$/Lab4/Lab4.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab5/Lab5.iml" filepath="$PROJECT_DIR$/Lab5/Lab5.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab7/Lab7.iml" filepath="$PROJECT_DIR$/Lab7/Lab7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab8/Lab8.iml" filepath="$PROJECT_DIR$/Lab8/Lab8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab9/Lab9.iml" filepath="$PROJECT_DIR$/Lab9/Lab9.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab3/src/NitroxScuba/NitroxScuba.iml" filepath="$PROJECT_DIR$/Lab3/src/NitroxScuba/NitroxScuba.iml" />
       <module fileurl="file://$PROJECT_DIR$/Practice/Practice.iml" filepath="$PROJECT_DIR$/Practice/Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectFinished/ProjectFinished.iml" filepath="$PROJECT_DIR$/ProjectFinished/ProjectFinished.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectFinishedMidterm/ProjectFinishedMidterm.iml" filepath="$PROJECT_DIR$/ProjectFinishedMidterm/ProjectFinishedMidterm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectPractice/ProjectPractice.iml" filepath="$PROJECT_DIR$/ProjectPractice/ProjectPractice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectPractice2/ProjectPractice2.iml" filepath="$PROJECT_DIR$/ProjectPractice2/ProjectPractice2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectPractice3/ProjectPractice3.iml" filepath="$PROJECT_DIR$/ProjectPractice3/ProjectPractice3.iml" />
     </modules>
   </component>
 </project>

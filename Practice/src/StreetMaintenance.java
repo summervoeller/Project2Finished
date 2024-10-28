@@ -7,8 +7,6 @@ public class StreetMaintenance {
 
     public static void main(String[] args) {
 
-
-        System.out.println("WEEK 7 - LAB 6");
         System.out.print("How many houses in the street? ");
 
         int houseAmount = keyboard.nextInt();
