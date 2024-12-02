@@ -12,7 +12,7 @@ public class UseFamily {
         String name;
         int age;
 
-//----Get family information
+
         do {
             System.out.print("Enter name of next person : ");
             name = keyboard.nextLine();

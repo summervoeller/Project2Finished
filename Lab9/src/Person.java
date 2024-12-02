@@ -1,6 +1,5 @@
 
 
-// Define the Person class
 public class Person {
 
     // Instance variables to store the name and age of a person
@@ -9,7 +8,7 @@ public class Person {
 
     // Default constructor
     public Person() {
-        name = "";
+        name = null;
         age = 0;
     }
 
@@ -38,4 +37,4 @@ public class Person {
     public int getAge() {
         return age;
     }
-}
+}//end of Person class

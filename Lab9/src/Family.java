@@ -1,5 +1,5 @@
 
-// Define the Family class
+
 public class Family {
 
     // Instance variables to store the information about the people (maximally 10 people per family)
@@ -15,8 +15,8 @@ public class Family {
 
     // IO method to display the family(each object int the array)
     public void display() {
-        for (int i = 0; i < numPeople; i++) {
-            System.out.println(people[i]);
+        for (int index = 0; index < numPeople; index++) {
+            System.out.println(people[index]);
         }
     }
 
@@ -33,11 +33,12 @@ public class Family {
 
     // Mutator method that makes the necessary changes for a birthday
     public void birthday(String name) {
-        for (int i = 0; i < numPeople; i++) {
-            if (people[i].getName().equals(name)) {
-                people[i].incrementAge();
-                break;
-            }
+        int i = 0;
+        while (i < numPeople && !people[i].getName().equals(name)) {
+            i++;
+        }
+        if (i < numPeople) {
+            people[i].incrementAge();
         }
     }
 
@@ -55,4 +56,4 @@ public class Family {
         }
         return totalAge;
     }
-}
+}//end of family class
